@@ -1,0 +1,39 @@
+body {
+  background-color: #171717;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+p {
+  font-style: italic;
+}
+
+.container {
+  padding: 20px;
+  background-color: aliceblue;
+  border: 1px white;
+  border-radius: 20px;
+}
+
+.pic-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pro-pic {
+  width: 100%;
+  height: 100%;
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  padding-left: 15px;
+}
