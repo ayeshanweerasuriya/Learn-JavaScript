@@ -13,7 +13,7 @@ function addBook(title, author, year) {
 
 function displayBooks() {
   console.log("--------------------------------------");
-  console.log("<-- List of books in the library -->");
+  console.log("--> List of books in the library");
   library.forEach((book) => {
     console.log(`${book.title} by ${book.author} (${book.year})`);
   });
