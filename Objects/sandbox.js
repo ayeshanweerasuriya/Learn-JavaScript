@@ -1,22 +1,46 @@
-const ayeshan = {
-  name: "Ayeshan",
-  age: 23,
-  address: "wewahena watta road",
-  sex: "male",
-  isAlive: true,
-  quotes: ["Good Morning", "Welcome"],
-  callQuotes: function () {
-    console.log(this.quotes);
-  },
+const library = [];
 
-  callFinalQoutes: function () {
-    this.quotes.forEach((quote) => {
-      console.log(quote);
-    });
-  },
-};
+function addBook(title, author, year) {
+  const book = {
+    title: title,
+    author: author,
+    year: year,
+  };
 
-// let result = ayeshan.quotes[1];
-// ayeshan["name"] = "Kesara";
+  library.push(book);
+  console.log(`${title} has been added to the library.`);
+}
 
-console.log(ayeshan.callFinalQoutes());
+function displayBooks() {
+  console.log("--------------------------------------");
+  console.log("<-- List of books in the library -->");
+  library.forEach((book) => {
+    console.log(`${book.title} by ${book.author} (${book.year})`);
+  });
+}
+
+function searchBook(title) {
+  console.log("--------------------------------------");
+  let bookFound = false;
+
+  library.forEach((book) => {
+    if (book.title.toLowerCase() === title.toLowerCase()) {
+      console.log(`Book Found: ${book.title} by ${book.author} (${book.year})`);
+      bookFound = true;
+    }
+  });
+
+  if (!bookFound) {
+    console.log(`Book not found: ${title}`);
+  }
+}
+
+// Example usage of the functions
+addBook("The Hobbit", "J.R.R. Tolkien", 1937);
+addBook("To Kill a Mockingbird", "Harper Lee", 1960);
+addBook("1984", "George Orwell", 1949);
+
+displayBooks();
+
+searchBook("The Hobbit");
+searchBook("Harry Potter");
