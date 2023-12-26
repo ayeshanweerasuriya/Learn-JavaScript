@@ -48,6 +48,7 @@ function searchBook(title) {
 
 const menu = () => {
   while (true) {
+    console.log(`<---- ************************************ ---->`);
     console.log("<---- Welcome to library management system ---->");
     console.log(`\n<---- select the option ---->\n`);
     console.log("1. Add Book");
@@ -68,7 +69,7 @@ const menu = () => {
         displayBooks();
         break;
       case "3":
-        searchBook();
+        takeSearchBook();
         break;
       default:
         console.log("Invalid choice. Please enter 1, 2, or 3.");
