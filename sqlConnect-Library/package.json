@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
     "prompt-sync": "^4.2.0"
   }
 }

@@ -1,5 +1,35 @@
 const prompt = require("prompt-sync")();
-const library = [];
+const mysql = require("mysql");
+
+// Create a MySQL connection
+const connection = mysql.createConnection({
+  host: "127.0.0.1",
+  user: "root@localhost",
+  // password: "your-mysql-password",
+  database: "librarymanagement",
+  port: 3306,
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error("Error connecting to MySQL:", err);
+    return;
+  }
+  console.log("Connected to MySQL database");
+});
+
+function addBookToDatabase(title, author, year) {
+  const sql = "INSERT INTO books (title, author, year) VALUES (?, ?, ?)";
+  const values = [title, author, year];
+
+  connection.query(sql, values, (err, result) => {
+    if (err) {
+      console.error("Error adding book to database:", err);
+    } else {
+      console.log(`${title} has been added to the library.`);
+    }
+  });
+}
 
 function addBook(title, author, year) {
   const book = {
@@ -8,8 +38,7 @@ function addBook(title, author, year) {
     year: year,
   };
 
-  library.push(book);
-  console.log(`${title} has been added to the library.`);
+  addBookToDatabase(title, author, year);
 }
 
 function displayBooks() {
