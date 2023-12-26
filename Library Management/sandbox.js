@@ -36,16 +36,6 @@ function searchBook(title) {
   }
 }
 
-// Example usage of the functions
-// addBook("The Hobbit", "J.R.R. Tolkien", 1937);
-// addBook("To Kill a Mockingbird", "Harper Lee", 1960);
-// addBook("1984", "George Orwell", 1949);
-
-// displayBooks();
-
-// searchBook("The Hobbit");
-// searchBook("Harry Potter");
-
 const menu = () => {
   while (true) {
     console.log(`<---- ************************************ ---->`);
@@ -90,4 +80,5 @@ const takeSearchBook = () => {
   const title = prompt("Book title: ");
   searchBook(title);
 };
+
 menu();
