@@ -3,11 +3,12 @@ const mysql = require("mysql2");
 
 // Create a MySQL connection
 const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root@localhost",
-  // password: "your-mysql-password",
-  database: "librarymanagement",
-  port: 3306,
+  host: "localhost",
+  user: "",
+  password: "", // Replace with your MySQL root password
+  database: "",
+  port: 1122,
+  connectTimeout: 30000, // 30 seconds (adjust as needed)
 });
 
 connection.connect((err) => {
@@ -19,7 +20,7 @@ connection.connect((err) => {
 });
 
 function addBookToDatabase(title, author, year) {
-  const sql = "INSERT INTO books (title, author, year) VALUES (?, ?, ?)";
+  const sql = "INSERT INTO books (title, author, book_year) VALUES (?, ?, ?)";
   const values = [title, author, year];
 
   connection.query(sql, values, (err, result) => {
