@@ -17,6 +17,15 @@ const menu = () => {
       case "1":
         addBook();
         break;
+      case "2":
+        deleteBook();
+        break;
+      case "3":
+        updateBook();
+        break;
+      case "4":
+        searchBook();
+        break;
     }
   }
 };
