@@ -9,9 +9,6 @@ const menu = () => {
     console.log("5. Exit");
 
     const choice = prompt("Choice: ");
-    if (choice == 5) {
-      return;
-    }
 
     switch (choice) {
       case "1":
@@ -26,6 +23,8 @@ const menu = () => {
       case "4":
         searchBook();
         break;
+      case "5":
+        return;
     }
   }
 };
