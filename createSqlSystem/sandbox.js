@@ -1,4 +1,24 @@
 const prompt = require("prompt-sync")();
 
-const name = prompt("Name: ");
-console.log(name);
+const menu = () => {
+  while (true) {
+    console.log("1. Add book");
+    console.log("2. Delete book");
+    console.log("3. Update book");
+    console.log("4. Search book");
+    console.log("5. Exit");
+
+    const choice = prompt("Choice: ");
+    if (choice == 5) {
+      return;
+    }
+
+    switch (choice) {
+      case "1":
+        addBook();
+        break;
+    }
+  }
+};
+
+menu();
