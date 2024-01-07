@@ -3,11 +3,13 @@ const request = new XMLHttpRequest(); // (01. create request object
 // (03. tracking the progress of the request
 request.addEventListener("readystatechange", () => {
   // readyState means request state
-  //   console.log(request, request.readyState);
+  console.log(request, request.readyState);
 
   // if it is in 4th step (Done) get the data
-  if (request.readyState === 4) {
+  if (request.readyState === 4 && request.status === 200) {
     console.log(request.responseText);
+  } else if (request.readyState === 4) {
+    console.log("reach readystate, 404");
   }
 });
 
