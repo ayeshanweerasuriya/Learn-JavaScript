@@ -1,3 +1,3 @@
-const prompt = require("prompt-sync")();
+const request = new XMLHttpRequest(); // create request object
 
-const num = prompt("Number of levels for the Christmas tree: ");
+request.open("Get", "https://jsonplaceholder.typicode.com/todos/");
