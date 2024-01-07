@@ -21,5 +21,5 @@ const getToDos = (callback) => {
 };
 
 getToDos((error, data) => {
-  console.log(error, data);
+  error ? console.log(error) : console.log(data);
 });
