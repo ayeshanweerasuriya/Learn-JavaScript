@@ -20,6 +20,7 @@ const getToDos = (callback) => {
   request.send(); // (03. send request
 };
 
+// callback error handling
 getToDos((error, data) => {
   error ? console.log(error) : console.log(data);
 });
