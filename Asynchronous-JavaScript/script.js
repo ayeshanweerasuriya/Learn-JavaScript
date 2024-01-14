@@ -1,3 +1,5 @@
+// Initializing API Fetch
+
 const getToDos = (callback) => {
   const request = new XMLHttpRequest(); // (01. create request object
 
