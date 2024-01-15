@@ -1,3 +1,5 @@
+// Initializing API Fetch
+
 const getToDos = (callback) => {
   const request = new XMLHttpRequest(); // (01. create request object
 
@@ -21,6 +23,7 @@ const getToDos = (callback) => {
   request.send(); // (03. send request
 };
 
+// callback error handling
 getToDos((error, data) => {
   error ? console.log(error) : console.log(data);
 });
