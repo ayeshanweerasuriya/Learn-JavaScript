@@ -9,7 +9,8 @@ const getToDos = (callback) => {
     // if it is in 4th step (Done) get the data
     if (request.readyState === 4 && request.status === 200) {
       //   console.log(request.responseText);
-      callback(undefined, request.responseText);
+      const data = JSON.parse(request.responseText);
+      callback(undefined, data);
     } else if (request.readyState === 4) {
       //   console.log("reach readystate, 404");
       callback("Could not fetch data", undefined);
