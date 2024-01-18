@@ -17,6 +17,7 @@ while (true) {
     break;
   } else if (userChoice === 4) {
     console.log("Exiting the game...");
+    console.clear();
     process.exit();
   } else {
     console.log("Invalid choice. Please choose a number between 1 and 4.");
