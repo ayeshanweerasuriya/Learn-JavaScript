@@ -50,3 +50,5 @@ function passImage(data) {
     cardContainer.appendChild(card);
   });
 }
+
+// implement search
