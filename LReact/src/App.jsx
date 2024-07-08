@@ -1,20 +1,53 @@
-import { UserFavouriteFood } from "./UserFavouriteFood";
-import { UserName } from "./UserName";
+import { UserFavouriteFood } from "./components/UserFavouriteFood";
+import { UserName } from "./components/UserName";
+
+import style from "./components/styles.module.css";
 
 export default function App() {
+  const mockUsers = [
+    {
+      id: 1,
+      name: "Ayeshan",
+    },
+    {
+      id: 2,
+      name: "Byeshan",
+    },
+    {
+      id: 3,
+      name: "Cyeshan",
+    },
+    {
+      id: 4,
+      name: "Dyeshan",
+    },
+    {
+      id: 5,
+      name: "Eyeshan",
+    },
+    {
+      id: 6,
+      name: "Fyeshan",
+    },
+    {
+      id: 7,
+      name: "Gyeshan",
+    },
+    {
+      id: 8,
+      name: "Hyeshan",
+    },
+  ];
   return (
     <>
-      <UserName
-        name={"Ayeshan"}
-        age={25}
-        callme={function callme() {
-          console.log("Hello World");
-        }}
-        isLoggedIn={false}
-        oneUser={[{ name: "Jason Moma", age: 45 }]}
-      />
-      <p>Lorem ipsum dolor sit amet.</p>
-      <UserFavouriteFood />
+      {mockUsers.map((item) => (
+        <div
+          className={item.id % 2 == 0 ? style.redText : style.greenText}
+          key={item.id}
+        >
+          {item.name}
+        </div>
+      ))}
     </>
   );
 }
