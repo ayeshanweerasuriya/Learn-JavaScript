@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { UserDetails } from "./components/UserDetails";
+import { AddUser } from "./components/AddUser";
 
 export default function App() {
   const [users, setUsers] = useState([
@@ -16,9 +17,18 @@ export default function App() {
   ]);
   return (
     <>
-      {users.map((user) => (
-        <UserDetails key={user.id} user={user} setUsers={setUsers} />
-      ))}
+      <AddUser setUsers={setUsers} />
+
+      <br />
+      <br />
+      {users.length > 0 ? (
+        users.map((user) => (
+          <UserDetails key={user.id} user={user} setUsers={setUsers} />
+        ))
+      ) : (
+        <div>Records are empty</div>
+      )}
+      {}
     </>
   );
 }
