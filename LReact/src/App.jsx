@@ -1,52 +1,23 @@
-import { UserFavouriteFood } from "./components/UserFavouriteFood";
-import { UserName } from "./components/UserName";
-
-import style from "./components/styles.module.css";
+import { useState } from "react";
+import { UserDetails } from "./components/UserDetails";
 
 export default function App() {
-  const mockUsers = [
+  const [users, setUsers] = useState([
     {
       id: 1,
       name: "Ayeshan",
+      email: "ayeshanweera@gmail.com",
     },
     {
       id: 2,
-      name: "Byeshan",
+      name: "Jason",
+      email: "jasonmamoa@icloud.com",
     },
-    {
-      id: 3,
-      name: "Cyeshan",
-    },
-    {
-      id: 4,
-      name: "Dyeshan",
-    },
-    {
-      id: 5,
-      name: "Eyeshan",
-    },
-    {
-      id: 6,
-      name: "Fyeshan",
-    },
-    {
-      id: 7,
-      name: "Gyeshan",
-    },
-    {
-      id: 8,
-      name: "Hyeshan",
-    },
-  ];
+  ]);
   return (
     <>
-      {mockUsers.map((item) => (
-        <div
-          className={item.id % 2 == 0 ? style.redText : style.greenText}
-          key={item.id}
-        >
-          {item.name}
-        </div>
+      {users.map((user) => (
+        <UserDetails key={user.id} user={user} setUsers={setUsers} />
       ))}
     </>
   );
