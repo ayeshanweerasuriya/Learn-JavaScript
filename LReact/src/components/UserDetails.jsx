@@ -72,7 +72,7 @@ export function UserDetails({ user, setUsers }) {
 
 UserDetails.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,

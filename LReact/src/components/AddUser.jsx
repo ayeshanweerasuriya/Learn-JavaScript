@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export function AddUser({ setUsers }) {
   const [name, setName] = useState("");
@@ -11,7 +12,7 @@ export function AddUser({ setUsers }) {
         e.preventDefault();
         setUsers((currentUserState) => [
           ...currentUserState,
-          { id: currentUserState.length + 1, name: name, email: email },
+          { id: uuidv4(), name: name, email: email },
         ]);
         setName("");
         setEmail("");
