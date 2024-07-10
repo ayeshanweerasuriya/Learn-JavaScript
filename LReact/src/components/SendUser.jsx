@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export function SendUser() {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [userData, setUserData] = useState({
+    userId: uuidv4(),
+    title: "",
+    body: "",
+  });
   const [submit, setSubmit] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
 
@@ -15,11 +18,7 @@ export function SendUser() {
           "https://jsonplaceholder.typicode.com/posts",
           {
             method: "POST",
-            body: JSON.stringify({
-              userId: uuidv4(),
-              title: title,
-              body: body,
-            }),
+            body: JSON.stringify(userData),
             headers: {
               "Content-type": "application/json; charset=UTF-8",
             },
@@ -47,22 +46,34 @@ export function SendUser() {
         <label htmlFor="title">Title: </label>
         <input
           type="text"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) =>
+            setUserData((currentUserData) => ({
+              ...currentUserData,
+              title: e.target.value,
+            }))
+          }
           id="title"
           name="title"
+          value={userData.title}
           required
         />
         <br />
         <label htmlFor="body">Body: </label>
         <input
           type="text"
-          onChange={(e) => setBody(e.target.value)}
+          onChange={(e) =>
+            setUserData((currentUserData) => ({
+              ...currentUserData,
+              body: e.target.value,
+            }))
+          }
           id="body"
           name="body"
+          value={userData.body}
           required
         />
         <br />
-        {title && body !== "" ? <button>SUBMIT</button> : null}
+        {userData.title && userData.body ? <button>SUBMIT</button> : null}
       </form>
       {isSubmit ? <div>Submit Success</div> : null}
     </>
