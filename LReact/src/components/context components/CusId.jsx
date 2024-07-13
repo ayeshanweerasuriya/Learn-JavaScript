@@ -2,29 +2,15 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../utils/hooks/userContext";
 
 export function CusId() {
-  const [pressed, setPressed] = useState(true);
-
-  const UseContext = useContext(UserContext);
-
-  const handleTextChange = () => {
-    setPressed((currentState) => !currentState);
-
-    pressed
-      ? UseContext.setUserData((currentUserData) => ({
-          ...currentUserData,
-          name: "James",
-          email: "jasonmomoa@gmail.com",
-        }))
-      : UseContext.setUserData((currentUserData) => ({
-          ...currentUserData,
-          name: "Ayeshan",
-          email: "ayeshanweerasuriya@gmail.com",
-        }));
-  };
+  const { id, name, username, email, phone, website } = useContext(UserContext);
   return (
     <div>
-      {UseContext.id}
-      <button onClick={handleTextChange}>Press</button>
+      <div>Id:{id}</div>
+      <div>Name: {name}</div>
+      <div>Username: {username}</div>
+      <div>Email:{email}</div>
+      <div>Phone:{phone}</div>
+      <div>Webisite:{website}</div>
     </div>
   );
 }

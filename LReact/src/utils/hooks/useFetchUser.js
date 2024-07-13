@@ -7,6 +7,16 @@ export const useFetchUser = (userId) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
+  const myPromise = new Promise((resolve, reject) => {
+    const response = fetch("https://jsonplaceholder.typicode.com/users");
+
+    if (response) {
+      resolve("Operation succeeded!");
+    } else {
+      reject("Operation failed.");
+    }
+  });
+
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
@@ -14,18 +24,24 @@ export const useFetchUser = (userId) => {
       signal: controller.signal,
     })
       .then((response) => response.json())
-      .then((data) => setUserData(data))
+      .then((data) => {
+        setUserData(data);
+        setError(undefined);
+      })
       .catch((error) => {
         if (error.name != "AbortError") {
           console.log(error);
           setError(error);
         }
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
 
     return () => {
       controller.abort();
       setLoading(false);
+      setError(undefined);
     };
   }, [userId]);
 
