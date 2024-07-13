@@ -6,17 +6,16 @@ import { useState } from "react";
 import { useFetchUser } from "./utils/hooks/useFetchUser";
 
 export default function App() {
+  const { user } = useFetchUser(5);
+
   const [userData, setUserData] = useState({
     id: 1,
     name: "Ayeshan",
     email: "ayeshanweerasuriya@gmail.com",
   });
 
-  const data = useFetchUser(6);
-  console.log(data);
-
   return (
-    <UserContext.Provider value={{ ...userData, setUserData }}>
+    <UserContext.Provider value={{ ...userData, setUserData, data: user }}>
       <div>
         <CusId />
         <CusName />
